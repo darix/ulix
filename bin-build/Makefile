@@ -56,7 +56,7 @@ compile:
 	$(CC) $(CFLAGS) -fno-stack-protector -std=c99 -g -nostdlib -nostdinc -fno-builtin -I./include -c -o ulix.o -aux-info ulix.aux ulix.c
 
 linking:
-	$(LD) $(LDFLAGS) -m32 -T ulix.ld -o ulix.bin *.o
+	$(LD) $(LDFLAGS) -m elf_i386 -T ulix.ld -o ulix.bin *.o
 
 mtools:
 	mcopy -o -i $(BOOT_IMG) ulix.bin ::
