@@ -504,7 +504,7 @@ enum { MX_SB_NINODES, MX_SB_NZONES, MX_SB_IMAP_BLOCKS, MX_SB_ZMAP_BLOCKS,
 #define __NR_query_ids 524
 // old line comment removed
 #define UNAME "Ulix-i386 0.13"
-#define BUILDDATE "Do  3 Sep 2015 15:41:31 CEST"
+#define BUILDDATE "SCRIPTBUILDDATE"
 // old line comment removed
 #define asm __asm__
 // old line comment removed
@@ -1617,7 +1617,7 @@ int system_kbd_pos;
 int system_kbd_lastread;
 int system_kbd_count;
 // old line comment removed
-boolean LANG_GERMAN = 1;   // default: german keyboard
+boolean LANG_GERMAN = 1;   // default: German keyboard
 // old line comment removed
 blocked_queue keyboard_queue;   // processes which wait for a keystroke
 // old line comment removed
@@ -1845,7 +1845,7 @@ if (found) {
   // memset ((void*)PHYSICAL(frameid << 12), 0, PAGE_SIZE); // REMOVE_DEBUGGING_CODE
   set_frame (frameid*4096);
   free_frames--;
-//  inside_req_frame--;                                       // REMOVE_DEBUGGING_CODE
+  // inside_req_frame--;                                    // REMOVE_DEBUGGING_CODE
   // printf ("NEW FRAME: 0x%0x\n", frameid);                // REMOVE_DEBUGGING_CODE
   return frameid;
 } else {
@@ -2943,10 +2943,10 @@ void syscall_readchar (context_t *r) {
 // old line comment removed
       
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
     }
   };
@@ -3077,10 +3077,10 @@ void syscall_kill (context_t *r) {
   // run scheduler_ if this was a raise operation
   if (current_task == target_pid) {  
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
                                                  }
 };
@@ -3466,10 +3466,10 @@ void syscall_pthread_exit (context_t *r) {
 // old line comment removed
   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
 }
 // old line comment removed
@@ -4473,10 +4473,10 @@ kl_semaphore_table[sid]
     debug_printf ("sem_LOCK going to call resign()\n");  // REMOVE_DEBUGGING_CODE
     
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
   }
   
@@ -4548,10 +4548,10 @@ void mutex_lock (lock lockvar) {
     debug_printf ("LOCK going to call resign()\n");   // REMOVE_DEBUGGING_CODE
     
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
   }
   lockvar->l = 1;
@@ -6878,10 +6878,10 @@ if (scheduler_is_active) {
 // old line comment removed
   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
 } else {
   
@@ -6967,10 +6967,10 @@ if (scheduler_is_active) {
 // old line comment removed
   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
   // debug_printf ("[%d.%d] hd_sleep returned "    // REMOVE_DEBUGGING_CODE
   //               "from resign()\n",              // REMOVE_DEBUGGING_CODE
@@ -7036,10 +7036,10 @@ if (scheduler_is_active) {
 // old line comment removed
   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
   // debug_printf ("[%d.%d] hd_sleep returned "    // REMOVE_DEBUGGING_CODE
   //               "from resign()\n",              // REMOVE_DEBUGGING_CODE
@@ -7315,10 +7315,10 @@ void fdc_sleep () {
 // old line comment removed
     
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
   }
   fdc_is_busy = false;
@@ -7589,10 +7589,10 @@ switch (tcb->state) {
                 if (pid == current_task) {
                   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
                               // enter scheduler_
                 }
@@ -7633,10 +7633,10 @@ scheduler_is_active = true;   _set_statusline ("SCH:ON ", 16);
                 if (pid == current_task) {
                   
 // old line comment removed
-asm (".intel_syntax noprefix; \
-  mov eax, 66;; \
-  int 0x80;; \
-  .att_syntax; ");
+asm {
+  mov eax, 66;   // System Call no. 66
+  int 0x80;      // Make the System Call
+}
 // old line comment removed
                               // enter scheduler_
                 }
@@ -8558,7 +8558,7 @@ uartinit (1);
                          // for debugging
   
 // old line comment removed
-// file page directory with null entries
+// fill page directory with null entries
 for (int i = 0;  i < 1024;  i++) {
   fill_page_table_desc (&(current_pd->ptds[i]), false, false, false, 0);
 };
@@ -8712,7 +8712,7 @@ gdt_flush ();
 // old line comment removed
 memset (ftable, 0, NUMBER_OF_FRAMES/8);  // all frames are free
 // old line comment removed
-memset (ftable, 0xff, 128);
+memset (ftable, 0xFF, 128);
 free_frames -= 1024;
 // old line comment removed
 for (uint fid = 0;  fid < NUMBER_OF_FRAMES;  fid++) {

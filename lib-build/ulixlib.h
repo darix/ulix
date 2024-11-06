@@ -1,10 +1,10 @@
-#line 2252 ""
+#line 2331 ""
 // ulixlib.h
 // To compile a Ulix program, include "ulixlib.h"
-#line 1117 ""
+#line 994 ""
 /*
-Copyright (c) 2008-2014 Felix Freiling, University of Erlangen-Nürnberg, Germany
-Copyright (c) 2011-2014 Hans-Georg Eßer, University of Erlangen-Nürnberg, Germany
+Copyright (c) 2008-2015 Felix Freiling, University of Erlangen-Nürnberg, Germany
+Copyright (c) 2011-2015 Hans-Georg Eßer, University of Erlangen-Nürnberg, Germany
 
 This program is free software: you can redistribute it and/or modify it under 
 the terms of the GNU General Public License as published by the Free Software 
@@ -16,13 +16,13 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this 
 program.  If not, see <http://www.gnu.org/licenses/>.                            */
-#line 2117 ""
+#line 2199 ""
 #define true  1
 #define false 0
 #define NULL ((void*) 0)
-#line 5565 ""
+#line 5998 ""
 #define MEM_SIZE 1024*1024*64       // 64 MByte
-#line 9597 ""
+#line 9582 ""
 // Thread states
 #define TSTATE_READY     1   // process is ready
 #define TSTATE_FORK      3   // fork() has not completed
@@ -34,7 +34,7 @@ program.  If not, see <http://www.gnu.org/licenses/>.                           
 #define TSTATE_LOCKED    9   // wait for lock
 #define TSTATE_STOPPED  10   // stopped by SIGSTOP signal
 #define TSTATE_WAITHD   11   // wait for hard disk
-#line 11059 ""
+#line 10929 ""
 #define __NR_exit          1
 #define __NR_fork          2
 #define __NR_read          3
@@ -69,81 +69,81 @@ program.  If not, see <http://www.gnu.org/licenses/>.                           
 #define __NR_setregid32  204
 #define __NR_setuid32    213
 #define __NR_setgid32    214
-#line 11192 ""
+#line 11060 ""
 #define __NR_get_errno 501
 #define __NR_set_errno 502
-#line 12003 ""
+#line 11784 ""
 #define __NR_resign       66
-#line 12081 ""
+#line 11860 ""
 #define __NR_gettid  21
-#line 12121 ""
+#line 11900 ""
 #define __NR_getpsinfo 503
-#line 12176 ""
+#line 11952 ""
 #define __NR_setpsname 504
-#line 13960 ""
+#line 13610 ""
 #define __NR_pthread_create 506
-#line 14038 ""
+#line 13688 ""
 #define __NR_pthread_exit 507
-#line 16299 ""
+#line 15735 ""
 #define __NR_get_free_frames   509
 #define __NR_free_a_frame      510
-#line 17195 ""
+#line 16612 ""
 #define __NR_clrscr   512
 #define __NR_get_xy   513
 #define __NR_set_xy   514
-#line 17291 ""
+#line 16705 ""
 #define __NR_read_screen   515
 #define __NR_write_screen  516
-#line 19321 ""
+#line 18589 ""
 #define __NR_pthread_mutex_init 517
-#line 19389 ""
+#line 18659 ""
 #define __NR_pthread_mutex_lock    518
 #define __NR_pthread_mutex_unlock  519
 #define __NR_pthread_mutex_trylock 526
-#line 19452 ""
+#line 18721 ""
 #define __NR_pthread_mutex_destroy 520
-#line 21710 ""
+#line 20635 ""
 #define __NR_readchar  525
-#line 22328 ""
+#line 21236 ""
 #define __NR_isatty  521
-#line 25535 ""
+#line 24280 ""
 #define __NR_diskfree  522
-#line 19315 ""
+#line 18583 ""
 #define EAGAIN 35
-#line 19382 ""
+#line 18652 ""
 #define EBUSY           16          // device / resource busy
-#line 29137 ""
+#line 27729 ""
 #define EPERM   1  // not permitted
 #define ESRCH   3  // no such process
 #define EINVAL 22  // invalid argument
-#line 29750 ""
+#line 28326 ""
 #define ENOENT          2               // No such file or directory
 #define EACCES          13              // Permission denied
-#line 12668 ""
+#line 12436 ""
 #define CMDLINE_LENGTH 50   // how long can a process name be?
-#line 15078 ""
+#line 14585 ""
 #define __NR_idle 505
-#line 15743 ""
+#line 15241 ""
 #define __NR_page_out 508
-#line 16458 ""
+#line 15893 ""
 #define KEY_ESC     27
 #define KEY_UP     191
 #define KEY_DOWN   192
 #define KEY_LEFT   193
 #define KEY_RIGHT  194
-#line 16977 ""
+#line 16404 ""
 #define VT_NORMAL_BACKGROUND (0x0F << 8)
 #define VT_BLUE_BACKGROUND   (0x1F << 8)
 #define VT_RED_BACKGROUND    (0x4F << 8)
-#line 17102 ""
+#line 16521 ""
 #define __NR_setterm  511
-#line 21697 ""
+#line 20622 ""
 #define STDIN_FILENO  0
 #define STDOUT_FILENO 1
 #define STDERR_FILENO 2
-#line 22113 ""
+#line 21026 ""
 #define MAX_PFD 16   // up to 16 open_ files per process
-#line 23725 ""
+#line 22551 ""
 #define S_IRWXU  0000700    // RWX mask for owner
 #define S_IRUSR  0000400    // R for owner
 #define S_IWUSR  0000200    // W for owner
@@ -171,21 +171,21 @@ program.  If not, see <http://www.gnu.org/licenses/>.                           
 #define S_IFREG  0100000    // regular
 #define S_IFLNK  0120000    // symbolic link
 #define S_IFSOCK 0140000    // socket
-#line 23828 ""
+#line 22653 ""
 #define O_RDONLY        0x0000     // read only
 #define O_WRONLY        0x0001     // write only
 #define O_RDWR          0x0002     // read and write
 #define O_APPEND        0x0008     // append mode
 #define O_CREAT         0x0200     // create file
-#line 24251 ""
+#line 23065 ""
 #define SEEK_SET 0    // absolute offset
 #define SEEK_CUR 1    // relative offset
 #define SEEK_END 2    // EOF plus offset
-#line 29112 ""
+#line 27704 ""
 #define SIG_DFL ((sighandler_t)0)     // default signal handling
 #define SIG_IGN ((sighandler_t)1)     // ignore signal
 #define SIG_ERR ((sighandler_t)-1)    // error code
-#line 29149 ""
+#line 27741 ""
 #define SIGHUP     1
 #define SIGINT     2
 #define SIGQUIT    3
@@ -216,30 +216,30 @@ program.  If not, see <http://www.gnu.org/licenses/>.                           
 #define SIGPROF   27
 #define SIGUSR1   30
 #define SIGUSR2   31
-#line 30072 ""
+#line 28633 ""
 #define __NR_login 523
-#line 30239 ""
+#line 28787 ""
 #define QUERY_UID  0
 #define QUERY_EUID 1
 #define QUERY_GID  2
 #define QUERY_EGID 3
 #define __NR_query_ids 524
-#line 2255 ""
+#line 2334 ""
                       
-#line 11213 ""
+#line 11081 ""
 #define errno (syscall1(__NR_get_errno))
-#line 30591 ""
+#line 29138 ""
 #define strequal(s1,s2) (!strcmp((s1),(s2)))
 #define strdiff(s1,s2)  (strcmp((s1),(s2)))
-#line 2256 ""
+#line 2335 ""
                               
-#line 22473 ""
+#line 21382 ""
 #define gets(s) ((ureadline(s,9999,true)), s)
-#line 2109 ""
+#line 2189 ""
 typedef unsigned char            byte;
 typedef unsigned char         boolean;
 typedef unsigned short           word;
-#line 2127 ""
+#line 2212 ""
 typedef unsigned char         uint8_t;
 typedef unsigned short       uint16_t;
 typedef unsigned int         uint32_t;
@@ -249,22 +249,22 @@ typedef int                    size_t;
 typedef unsigned int             uint;   // short names for "unsigned int",
 typedef unsigned long           ulong;   // "unsigned long" and
 typedef unsigned long long  ulonglong;   // "unsigned long long" (64 bit)
-#line 2142 ""
+#line 2228 ""
 typedef unsigned int       memaddress;
-#line 8106 ""
+#line 8396 ""
 typedef unsigned int addr_space_id;
-#line 9503 ""
+#line 9492 ""
 typedef unsigned int thread_id;
-#line 29073 ""
+#line 27665 ""
 typedef void (*sighandler_t)(int);
-#line 7223 ""
+#line 7563 ""
 typedef struct {
   unsigned int gs, fs, es, ds;
   unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;
   unsigned int int_no, err_code;
   unsigned int eip, cs, eflags, useresp, ss;
 } context_t;
-#line 9314 ""
+#line 9315 ""
 typedef struct {
   thread_id  pid;         // process id
   thread_id  tid;         // thread id
@@ -275,49 +275,49 @@ typedef struct {
   memaddress eip;         // program counter
   memaddress ebp;         // base pointer
   
-#line 8119 ""
+#line 8409 ""
 addr_space_id addr_space;
-#line 9675 ""
+#line 9658 ""
 thread_id next;       // id of the ``next'' thread
 thread_id prev;       // id of the ``previous'' thread
-#line 9988 ""
+#line 9961 ""
 boolean used;
-#line 11134 ""
+#line 11003 ""
 int error;
-#line 11880 ""
+#line 11675 ""
 int exitcode;
 int waitfor;    // pid of the child that this process waits for
-#line 12672 ""
+#line 12440 ""
 char cmdline[CMDLINE_LENGTH];
-#line 13822 ""
+#line 13473 ""
 boolean   new;                    // is this thread new?
 void      *top_of_thread_kstack;  // extra kernel stack for this thread
-#line 16999 ""
+#line 16426 ""
 int terminal;
-#line 22119 ""
+#line 21032 ""
 int files[MAX_PFD];
-#line 22499 ""
+#line 21407 ""
 char cwd[256];
-#line 29081 ""
+#line 27673 ""
   sighandler_t sighandlers[32];
   unsigned long sig_pending;
   unsigned long sig_blocked;
-#line 29606 ""
+#line 28183 ""
 word uid;   // user ID
 word gid;   // group ID
 word euid;  // effective user ID
 word egid;  // effective group ID
 word ruid;  // real user ID
 word rgid;  // real group ID
-#line 9324 ""
+#line 9325 ""
 } TCB;
-#line 13745 ""
+#line 13402 ""
 typedef void *pthread_t;
 typedef void pthread_attr_t;   // attributes not implemented
-#line 19272 ""
+#line 18540 ""
 typedef int pthread_mutex_t;
 typedef int pthread_mutexattr_t;
-#line 25305 ""
+#line 24073 ""
 struct stat {
   unsigned int   st_dev;     // ID of device containing file
   unsigned short st_ino;     // inode number
@@ -331,12 +331,12 @@ struct stat {
   unsigned int   st_mtime;   // time of last modification
   unsigned int   st_ctime;   // time of last status change
 };
-#line 25360 ""
+#line 24127 ""
 struct dir_entry {
   word inode;              // inode number
   byte filename[64];       // filename
 };
-#line 25433 ""
+#line 24178 ""
 struct diskfree_query {
   int device;         // device ID (is set before calling mx_diskfree)
   int size;           // size of filesystem, in blocks
@@ -346,9 +346,9 @@ struct diskfree_query {
   char mount[256];    // mount point
   char fstype[10];    // filesystem name, e.g. "minix"
 };
-#line 2258 ""
+#line 2337 ""
                              
-#line 30100 ""
+#line 28659 ""
 struct passwd {
   char pw_name[32];    // user name
   char pw_passwd[32];  // password
@@ -358,11 +358,11 @@ struct passwd {
   char pw_dir[32];     // home directory
   char *pw_shell;      // shell            (ULIX: unused)
 };
-#line 23582 ""
+#line 22428 ""
 void splitpath (const char *path, char *dirname, char *basename);
 char *basename (char *path);
 char *dirname  (char *path);
-#line 30499 ""
+#line 29046 ""
 size_t strlen (const char *str);
 int    strcmp (const char *str1, const char *str2);
 int    strncmp (const char *str1, const char *str2, uint n);
@@ -370,67 +370,67 @@ char   *strncpy (char *dest, const char *src, size_t count);
 char   *strcpy  (char *dest, const char *src);
 int    atoi (char *s);
 int    atoi8 (char *s);
-#line 30604 ""
+#line 29152 ""
 void *memcpy  (void *dest, const void *src, size_t count);
 void *memset  (void *dest, char val, size_t count);
 word *memsetw (word *dest, word val, size_t count);
-#line 30694 ""
+#line 29243 ""
 int printf  (const char *format, ...);
 int sprintf (char *out, const char *format, ...);
-#line 2259 ""
+#line 2338 ""
                                 
-#line 9223 ""
+#line 9231 ""
 void *sbrk (int incr);
-#line 10988 ""
+#line 10861 ""
 inline int syscall4 (int eax, int ebx, int ecx, int edx);
 inline int syscall3 (int eax, int ebx, int ecx);
 inline int syscall2 (int eax, int ebx);
 inline int syscall1 (int eax);
-#line 11628 ""
+#line 11425 ""
 int fork ();
-#line 11804 ""
+#line 11599 ""
 void exit (int exitcode);
-#line 11953 ""
+#line 11745 ""
 int waitpid (int pid, int *status, int options);
-#line 12022 ""
+#line 11802 ""
 inline void resign ();
-#line 12094 ""
+#line 11873 ""
 int gettid ();
 int getpid ();
 int getppid ();
-#line 12683 ""
+#line 12451 ""
 int execv (const char *path, char *const argv[]);
-#line 13974 ""
+#line 13624 ""
 int pthread_create (pthread_t *thread, const pthread_attr_t *attr,
                     void *address, void *arg);
-#line 14047 ""
+#line 13697 ""
 void pthread_exit ();
-#line 15097 ""
+#line 14604 ""
 inline void idle ();
-#line 15768 ""
+#line 15266 ""
 int lib_page_out (int pageno);
-#line 16312 ""
+#line 15748 ""
 int get_free_frames ();
 void free_a_frame ();
-#line 17113 ""
+#line 16532 ""
 void setterm (int vt);
-#line 17237 ""
+#line 16652 ""
 void clrscr ();
 void get_xy (char *x, char *y);
 void set_xy (char x, char y);
-#line 17317 ""
+#line 16730 ""
 void read_screen (char *buf);
 void write_screen (char *buf);
-#line 17336 ""
+#line 16748 ""
 void scroll_up ();
 void scroll_down ();
-#line 19483 ""
+#line 18750 ""
 int pthread_mutex_init    (pthread_mutex_t *mutex,
                            const pthread_mutexattr_t *attr);
 int pthread_mutex_lock    (pthread_mutex_t *mutex);
 int pthread_mutex_unlock  (pthread_mutex_t *mutex);
 int pthread_mutex_destroy (pthread_mutex_t *mutex);
-#line 22342 ""
+#line 21250 ""
 int open       (const char *path, int oflag, ...);
 int stat       (const char *path, struct stat *buf);
 int close      (int fildes);
@@ -447,38 +447,38 @@ int link       (const char *path1, const char *path2);
 int unlink     (const char *path);
 int symlink    (const char *path1, const char *path2);
 int readlink   (char *path, char *buf, int bufsize);
-#line 22414 ""
+#line 21322 ""
 int  ureadline (char *s, int maxlength, boolean echo);
 byte ureadchar ();
-#line 22579 ""
+#line 21487 ""
 char *getcwd (char *buf, int size);
 int chdir (const char *path);
-#line 25546 ""
+#line 24291 ""
 void diskfree (struct diskfree_query *query);
-#line 26571 ""
+#line 25309 ""
 void sync ();
-#line 29479 ""
+#line 28062 ""
 int kill (int pid, int signo);
 int raise (int signo);
 sighandler_t signal (int sig, sighandler_t func);
-#line 30079 ""
+#line 28640 ""
 int setuid  (word uid);    // set user ID
 int setgid  (word gid);    // set group ID
 int seteuid (word euid);   // set effective user ID
 int setegid (word egid);   // set effective group ID
 int login   (word uid, char *pass);
-#line 30115 ""
+#line 28674 ""
 int getpwnam_r (const char *name,   struct passwd *pwd, 
                 char *buffer, int bufsize, struct passwd **result);
 int getpwuid_r (word uid, struct passwd *pwd, 
                 char *buffer, int bufsize, struct passwd **result);                
-#line 30226 ""
+#line 28775 ""
 word getuid  ();
 word geteuid ();
 word getgid  ();
 word getegid ();
-#line 30427 ""
+#line 28974 ""
 int chown (const char *path, short owner, short group);
 int chmod (const char *path, short mode);
-#line 30735 ""
+#line 29284 ""
 int ulixlib_printchar (byte c);

@@ -1617,7 +1617,7 @@ int system_kbd_pos;
 int system_kbd_lastread;
 int system_kbd_count;
 // old line comment removed
-boolean LANG_GERMAN = 1;   // default: german keyboard
+boolean LANG_GERMAN = 1;   // default: German keyboard
 // old line comment removed
 blocked_queue keyboard_queue;   // processes which wait for a keystroke
 // old line comment removed
@@ -1845,7 +1845,7 @@ if (found) {
   // memset ((void*)PHYSICAL(frameid << 12), 0, PAGE_SIZE); // REMOVE_DEBUGGING_CODE
   set_frame (frameid*4096);
   free_frames--;
-//  inside_req_frame--;                                       // REMOVE_DEBUGGING_CODE
+  // inside_req_frame--;                                    // REMOVE_DEBUGGING_CODE
   // printf ("NEW FRAME: 0x%0x\n", frameid);                // REMOVE_DEBUGGING_CODE
   return frameid;
 } else {
@@ -8558,7 +8558,7 @@ uartinit (1);
                          // for debugging
   
 // old line comment removed
-// file page directory with null entries
+// fill page directory with null entries
 for (int i = 0;  i < 1024;  i++) {
   fill_page_table_desc (&(current_pd->ptds[i]), false, false, false, 0);
 };
@@ -8712,7 +8712,7 @@ gdt_flush ();
 // old line comment removed
 memset (ftable, 0, NUMBER_OF_FRAMES/8);  // all frames are free
 // old line comment removed
-memset (ftable, 0xff, 128);
+memset (ftable, 0xFF, 128);
 free_frames -= 1024;
 // old line comment removed
 for (uint fid = 0;  fid < NUMBER_OF_FRAMES;  fid++) {
