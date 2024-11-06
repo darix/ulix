@@ -3,7 +3,7 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
   OS=Linux
   LD=ld
-  CC=/usr/bin/gcc-4.4
+  CC=gcc
   OBJDUMP=objdump
   CFLAGS=-O0 -m32 -mstackrealign
 endif

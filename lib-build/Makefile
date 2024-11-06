@@ -3,7 +3,7 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
   OS=Linux
   LD=ld
-  CC=/usr/bin/gcc-4.4
+  CC=gcc
   OBJDUMP=objdump
 endif
 
@@ -16,9 +16,9 @@ endif
 
 NOWEBFILE=../ulix-book.nw
 
-CCOPTIONS=-nostdlib -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -mtune=i386 -momit-leaf-frame-pointer -O0
+CCOPTIONS=-nostdlib -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -m32 -march=i386 -mtune=i386 -momit-leaf-frame-pointer -O0
 CCASMOPTIONS=-fverbose-asm -masm=intel
-LDOPTIONS=-static -s
+LDOPTIONS=-static -m elf_i386 -s
 
 all: build
 

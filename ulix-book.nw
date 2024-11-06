@@ -12514,7 +12514,7 @@ data disk image:
 %nouse
 <<lib-build/tools/Makefile>>=
 LD=ld
-CC=/usr/bin/gcc-4.4
+CC=gcc
 OBJDUMP=objdump
 CCOPTIONS=-nostdlib -ffreestanding -fforce-addr -fomit-frame-pointer   \
   -fno-function-cse -nostartfiles -mtune=i386 -momit-leaf-frame-pointer
@@ -21338,7 +21338,7 @@ int ureadline (char *s, int maxlength, boolean echo) {
   int pos=0;
   for (;;) {
     startlabel:
-    if (pos < 0) { printf ("ERROR: pos < 0\n"); return; }
+    if (pos < 0) { printf ("ERROR: pos < 0\n"); return -1; }
     byte c = 0;
     int nbytes = read (STDIN_FILENO, &c, 1);         // read one char. from stdin
     if (nbytes == 0) return -1;
@@ -21370,6 +21370,7 @@ int ureadline (char *s, int maxlength, boolean echo) {
       s[pos++] = c;
     };
   };
+  return -1;
 };
 @ %def ureadline
 
@@ -28068,7 +28069,7 @@ int kill (int pid, int signo) {
   return syscall3 (__NR_kill, pid, signo);
 }
 
-int raise (signo) {
+int raise (int signo) {
   return kill (getpid (), signo);
 }
 
@@ -30269,7 +30270,7 @@ The \path!bin-build/! directory is used for compiling the kernel source file \pa
 <<bin-build/Makefile>>=
 OS=Linux
 LD=ld
-CC=/usr/bin/gcc-4.4
+CC=gcc
 OBJDUMP=objdump
 CFLAGS=-O0 -m32 -mstackrealign
 
@@ -30343,7 +30344,7 @@ You might want to set up your Linux system so that you can run \verb#sudo# witho
 <<lib-build/Makefile>>=
 OS=Linux
 LD=ld
-CC=/usr/bin/gcc-4.4
+CC=gcc
 OBJDUMP=objdump
 
 NOWEBFILE=../ulix-book.nw

@@ -1,7 +1,7 @@
 ifeq ($(HOME),/home/esser)
   OS=Linux
   LD=ld
-  CC=/usr/bin/gcc-4.4
+  CC=gcc
   OBJDUMP=objdump
 endif
 
