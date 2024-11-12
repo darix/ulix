@@ -1,0 +1,26 @@
+#!/bin/bash
+
+CONTAINER_HOME_VOLUME="${1:-${HOME}/workspace/ulix}"
+CONTAINER_HOME_DIR="/home/ulix/github"
+shift
+
+echo "Running inside-container build with '${CONTAINER_HOME_VOLUME}' mapped to '${CONTAINER_HOME_DIR}'"
+
+if ! id --user --name inside-container ; then
+  echo "please run 'sudo groupadd --gid 64536 -r inside-container && sudo useradd --uid 64536 --no-log-init -r -g inside-container inside-container'"
+  exit 1
+fi
+
+setfacl -R -m u:$(id --user --name):rwX ${CONTAINER_HOME_VOLUME}
+setfacl -R -m u:$(id --user --name inside-container):rwX ${CONTAINER_HOME_VOLUME}
+
+setfacl -R -d -m u:$(id --user --name):rwX ${CONTAINER_HOME_VOLUME}
+setfacl -R -d -m u:$(id --user --name inside-container):rwX ${CONTAINER_HOME_VOLUME}
+
+sudo podman run \
+  --volume=${CONTAINER_HOME_VOLUME}:${CONTAINER_HOME_DIR} \
+  --pull=always \
+  --network=none \
+  --rm -i -t \
+  --workdir="${CONTAINER_HOME_DIR}" \
+  registry.opensuse.org/home/darix/ulix/containers/ulix:latest
