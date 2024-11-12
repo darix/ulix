@@ -1,18 +1,16 @@
-ifeq ($(HOME),/home/esser)
-  OS=Linux
-  LD=ld
-  CC=gcc
-  OBJDUMP=objdump
-endif
+OS=Linux
+LD=ld
+CC=gcc
+OBJDUMP=objdump
 
-ifeq ($(HOME),/Users/esser)
+ifeq ($(UNAME_S),Darwin)
   OS=MacOS
   LD=/usr/cross/bin/i586-elf-ld
   CC=/usr/cross/bin/i586-elf-gcc
   OBJDUMP=/usr/cross/bin/i586-elf-objdump
 endif
 
-CCOPTIONS=-nostdlib -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -mtune=i386 -momit-leaf-frame-pointer
+CCOPTIONS=-nostdlib -std=gnu89 -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -m32 -mtune=i386 -momit-leaf-frame-pointer
 # CCOPTIONS=-nostdlib -ffreestanding -mtune=i386 -momit-leaf-frame-pointer
 
 # LDOPTIONS=-T process.ld -static -s --pie

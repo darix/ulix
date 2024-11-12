@@ -16,7 +16,7 @@ endif
 
 NOWEBFILE=../ulix-book.nw
 
-CCOPTIONS=-nostdlib -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -m32 -march=i386 -mtune=i386 -momit-leaf-frame-pointer -O0
+CCOPTIONS=-nostdlib -std=gnu89 -ffreestanding -fforce-addr -fomit-frame-pointer -fno-function-cse -nostartfiles -m32 -march=i386 -mtune=i386 -momit-leaf-frame-pointer -O0
 CCASMOPTIONS=-fverbose-asm -masm=intel
 LDOPTIONS=-static -m elf_i386 -s
 
